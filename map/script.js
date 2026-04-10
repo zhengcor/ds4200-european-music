@@ -34,8 +34,6 @@ countryData.forEach(function(d) {
   dataByCode[d.country] = d;
 });
 
-let selectedCountry = null;
-
 d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json')
   .then(function(world) {
 
@@ -57,11 +55,12 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json')
     let feature = document.getElementById('feature-select').value;
 
     let values = countryData.map(function(d) { return d[feature]; });
-    let colorScale = d3.scaleSequential()
+    let colorScale = d3.scaleLinear()
       .domain([d3.min(values), d3.max(values)])
-      .interpolator(d3.interpolateYlGnBu);
+      .range(['#c6dbef', '#08519c']);
 
     svg.selectAll('path').remove();
+    svg.selectAll('.legend').remove();
 
     svg.selectAll('path')
       .data(europeFeatures)
@@ -77,41 +76,73 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json')
         }
         return '#e0e0e0';
       })
-      .attr('opacity', function(d) {
-        let code = idToCode[d.id];
-        if (selectedCountry && code !== selectedCountry) return 0.3;
-        return 1;
-      })
-      .style('cursor', function(d) {
-        return idToCode[d.id] ? 'pointer' : 'default';
-      })
       .on('mouseover', function(event, d) {
         let code = idToCode[d.id];
         if (code && dataByCode[code]) {
-          d3.select(this).attr('stroke', '#1b4965').attr('stroke-width', 2);
-          tooltip.transition().duration(200).style('opacity', 0.9);
+          d3.select(this)
+            .attr('stroke', '#1b4965')
+            .attr('stroke-width', 2);
+          tooltip.transition()
+            .duration(200)
+            .style('opacity', 0.9);
           tooltip.html(
-            '<strong>' + dataByCode[code].country_name + '</strong><br/>' +
+            dataByCode[code].country_name + '<br/>' +
             feature + ': ' + dataByCode[code][feature].toFixed(3)
           )
-          .style('left', (event.pageX + 12) + 'px')
-          .style('top', (event.pageY - 30) + 'px');
+          .style('left', (event.pageX + 10) + 'px')
+          .style('top', (event.pageY - 28) + 'px');
         }
       })
       .on('mouseout', function() {
-        d3.select(this).attr('stroke', 'white').attr('stroke-width', 0.5);
-        tooltip.transition().duration(300).style('opacity', 0);
-      })
-      .on('click', function(event, d) {
-        let code = idToCode[d.id];
-        if (!code) return;
-        if (selectedCountry === code) {
-          selectedCountry = null;
-        } else {
-          selectedCountry = code;
-        }
-        drawMap();
+        d3.select(this)
+          .attr('stroke', 'white')
+          .attr('stroke-width', 0.5);
+        tooltip.transition()
+          .duration(500)
+          .style('opacity', 0);
       });
+
+
+
+      
+    let legendWidth = 200;
+    let legendHeight = 12;
+    let numSteps = 8;
+    let stepWidth = legendWidth / numSteps;
+
+    let legend = svg.append('g')
+      .attr('class', 'legend')
+      .attr('transform', 'translate(' + (width - legendWidth - 20) + ',' + (height - 40) + ')');
+
+    legend.append('text')
+      .attr('x', 0)
+      .attr('y', -5)
+      .text(feature)
+      .style('font-size', '12px')
+      .style('font-weight', 'bold');
+
+    for (let i = 0; i < numSteps; i++) {
+      let val = d3.min(values) + (i / numSteps) * (d3.max(values) - d3.min(values));
+      legend.append('rect')
+        .attr('x', i * stepWidth)
+        .attr('y', 0)
+        .attr('width', stepWidth)
+        .attr('height', legendHeight)
+        .attr('fill', colorScale(val));
+    }
+
+    legend.append('text')
+      .attr('x', 0)
+      .attr('y', legendHeight + 14)
+      .text(d3.min(values).toFixed(2))
+      .style('font-size', '10px');
+
+    legend.append('text')
+      .attr('x', legendWidth)
+      .attr('y', legendHeight + 14)
+      .text(d3.max(values).toFixed(2))
+      .style('font-size', '10px')
+      .style('text-anchor', 'end');
   }
 
   drawMap();
