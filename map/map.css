@@ -1,0 +1,90 @@
+@import url('../styles.css');
+
+.controls {
+  margin-bottom: 1.5rem;
+}
+
+.controls label {
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.controls select {
+  padding: 0.4rem 0.8rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.content-container {
+  display: flex;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.visualization-column {
+  flex: 1.5;
+  min-width: 0;
+}
+
+.description-column {
+  flex: 1;
+  min-width: 0;
+}
+
+#chart {
+  min-height: 500px;
+}
+
+.description {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.description h2 {
+  margin-top: 0;
+}
+
+.description p {
+  line-height: 1.6;
+}
+
+.country {
+  stroke: #fff;
+  stroke-width: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.country:hover {
+  stroke: #1b4965;
+  stroke-width: 2;
+}
+
+.country.selected {
+  stroke: #e07a5f;
+  stroke-width: 2.5;
+}
+
+.country.faded {
+  opacity: 0.3;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  border-radius: 6px;
+  pointer-events: none;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.legend-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+}

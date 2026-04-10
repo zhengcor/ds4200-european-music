@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Map | European Music Trends</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://d3js.org/topojson.v3.min.js"></script>
+  <link rel="stylesheet" href="map.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">European Music Trends</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../heatmap/heatmap.html">Heatmap</a>
+      <a href="../Scatterplot/scatterplot.html">Scatterplot</a>
+      <a href="../map/map.html" class="active">Map</a>
+      <a href="../barchart/barchart.html">Bar Chart</a>
+      <a href="../radar/radar.html">Radar</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="section">
+      <h2>Interactive Choropleth Map</h2>
+      <p>
+        This visualization is interactive! Use the dropdown to change which audio feature
+        is displayed. Hover over a country to see its values. Click a country to keep it selected.
+      </p>
+    </section>
+
+    <div class="controls">
+      <label for="feature-select">Audio Feature: </label>
+      <select id="feature-select">
+        <option value="danceability">Danceability</option>
+        <option value="energy" selected>Energy</option>
+        <option value="valence">Valence</option>
+        <option value="acousticness">Acousticness</option>
+        <option value="speechiness">Speechiness</option>
+        <option value="instrumentalness">Instrumentalness</option>
+        <option value="liveness">Liveness</option>
+        <option value="tempo">Tempo</option>
+        <option value="loudness">Loudness</option>
+        <option value="popularity">Popularity</option>
+      </select>
+    </div>
+
+    <div class="content-container">
+      <div class="visualization-column">
+        <div id="chart"></div>
+      </div>
+      <div class="description-column">
+        <div class="description">
+          <h2>Takeaway</h2>
+          <p>
+            <!-- TODO: Add takeaway once the visualization is finalized -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    DS4200 &mdash; Information Presentation &amp; Visualization &mdash; Northeastern University
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
