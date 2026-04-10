@@ -75,9 +75,9 @@
 
 .tooltip {
   position: absolute;
-  padding: 10px 14px;
-  background: rgba(0, 0, 0, 0.85);
-  color: white;
+  padding: 12px;
+  background: white;
+  color: black;
   border-radius: 6px;
   pointer-events: none;
   font-size: 0.85rem;
