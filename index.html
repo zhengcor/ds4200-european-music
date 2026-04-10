@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>European Music Trends | DS4200</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">European Music Trends</div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="heatmap/heatmap.html">Heatmap</a>
+      <a href="scatterplot/scatterplot.html">Scatterplot</a>
+      <a href="map/map.html">Map</a>
+      <a href="barchart/barchart.html">Bar Chart</a>
+      <a href="radar/radar.html">Radar</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Welcome to European Music Trends</h1>
+    <p>
+      Music is a universal language, but the way people listen varies from country to country.
+      For this project, we explored Spotify's top-charting data across 10 European countries
+      to investigate a central question: <strong>How does geographical location in Europe
+      influence the distribution of music genres and audio features?</strong>
+    </p>
+    <p>
+      Using a collection of interactive visualizations, we analyze characteristics like
+      danceability, energy, valence, tempo, and more to uncover how regional culture
+      and geography shape musical preferences. Below, you'll find an introduction to our
+      dataset, links to each visualization, and our conclusions.
+    </p>
+  </section>
+
+  <div class="container">
+
+    <!-- Introduction to the Dataset -->
+    <section class="section">
+      <h2>Introduction to the Dataset</h2>
+      <p>
+        Our data comes from the
+        <a href="https://www.kaggle.com/datasets/asaniczka/top-spotify-songs-in-73-countries-daily-updated/data" target="_blank" class="inline-link">
+          Top Spotify Songs in 73 Countries</a>
+        dataset on Kaggle. From the full dataset, we filtered to the top 500 songs in each
+        of 10 European countries &mdash; the United Kingdom, Germany, France, Spain, Italy,
+        Netherlands, Sweden, Poland, Belgium, and Portugal &mdash; giving us 5,000 tracks to analyze.
+      </p>
+      <p>Each song includes a variety of audio features provided by Spotify's audio analysis API:</p>
+      <ul class="feature-list">
+        <li><strong>Danceability</strong> &mdash; How suitable a track is for dancing</li>
+        <li><strong>Energy</strong> &mdash; Intensity and activity level of the track</li>
+        <li><strong>Valence</strong> &mdash; Musical positiveness (happy vs. sad)</li>
+        <li><strong>Acousticness</strong> &mdash; Likelihood the track is acoustic</li>
+        <li><strong>Speechiness</strong> &mdash; Presence of spoken words</li>
+        <li><strong>Instrumentalness</strong> &mdash; Whether a track contains no vocals</li>
+        <li><strong>Liveness</strong> &mdash; Likelihood of a live recording</li>
+        <li><strong>Tempo</strong> &mdash; Beats per minute (BPM)</li>
+        <li><strong>Loudness</strong> &mdash; Overall loudness in decibels</li>
+        <li><strong>Key &amp; Mode</strong> &mdash; Musical key and major/minor tonality</li>
+        <li><strong>Duration</strong> &mdash; Length of the song in seconds</li>
+        <li><strong>Popularity</strong> &mdash; Spotify's popularity score for the track</li>
+      </ul>
+      <p>
+        This dataset offers a rich view into the characteristics of popular music across Europe.
+        By comparing these audio features country by country, we can explore whether geography
+        and culture leave a measurable fingerprint on listening habits.
+      </p>
+    </section>
+
+    <!-- Visit Our Graphs -->
+    <section class="section">
+      <h2>Visit Our Graphs!</h2>
+      <div class="viz-grid">
+
+        <a href="heatmap/heatmap.html" class="viz-card">
+          <h3>Feature Heatmap</h3>
+          <p>Compare average audio features across all 10 countries at a glance.</p>
+          <span class="tag">Altair</span>
+        </a>
+
+        <a href="scatterplot/scatterplot.html" class="viz-card">
+          <h3>Energy vs. Valence Scatterplot</h3>
+          <p>Explore the relationship between energy and positivity by country.</p>
+          <span class="tag">Altair</span>
+        </a>
+
+        <a href="map/map.html" class="viz-card">
+          <h3>Interactive Map</h3>
+          <p>Click countries on a choropleth to see how audio features vary geographically.</p>
+          <span class="tag">D3.js</span>
+        </a>
+
+        <a href="barchart/barchart.html" class="viz-card">
+          <h3>Country Comparison Bar Chart</h3>
+          <p>Compare any audio attribute across all 10 countries side by side.</p>
+          <span class="tag">Altair</span>
+        </a>
+
+        <a href="radar/radar.html" class="viz-card">
+          <h3>Country Profiles Radar Chart</h3>
+          <p>Overlay the audio fingerprints of selected countries to compare their profiles.</p>
+          <span class="tag">D3.js</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Conclusions -->
+    <section class="section">
+      <h2>General Conclusions</h2>
+      <p>
+        <!-- TODO: Add 2-3 key findings tied to the research question once visualizations are complete. -->
+      </p>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    DS4200 &mdash; Information Presentation &amp; Visualization &mdash; Northeastern University
+  </footer>
+
+</body>
+</html>

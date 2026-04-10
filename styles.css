@@ -1,0 +1,196 @@
+/* ── Theme Variables ── */
+:root {
+  --primary: #1b4965;
+  --primary-light: #2a6f97;
+  --accent: #e07a5f;
+  --bg: #faf9f6;
+  --text: #2b2b2b;
+  --text-light: #5a5a5a;
+  --white: #ffffff;
+  --font-heading: 'DM Serif Display', serif;
+  --font-body: 'Work Sans', sans-serif;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Navbar ── */
+.navbar {
+  background-color: var(--primary);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .logo {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--white);
+}
+
+.navbar nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar nav a {
+  color: var(--white);
+  font-size: 0.95rem;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+  opacity: 1;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+/* ── Layout ── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ── Hero / Landing Section ── */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  max-width: 750px;
+  margin: 0 auto 1.25rem;
+  text-align: left;
+}
+
+/* ── Section ── */
+.section {
+  margin-bottom: 3rem;
+}
+
+.section h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--accent);
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+
+.section p {
+  color: var(--text-light);
+  max-width: 800px;
+  margin-bottom: 1rem;
+}
+
+/* ── Inline Links ── */
+.inline-link {
+  color: var(--primary-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.inline-link:hover {
+  color: var(--accent);
+}
+
+/* ── Feature List ── */
+.feature-list {
+  list-style: none;
+  columns: 2;
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+  max-width: 800px;
+}
+
+.feature-list li {
+  padding: 0.3rem 0;
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+.feature-list li strong {
+  color: var(--text);
+}
+
+/* ── Viz Grid (links to viz pages) ── */
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.viz-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px solid #e0e0e0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.viz-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.viz-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.viz-card p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.viz-card .tag {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  border-top: 1px solid #e0e0e0;
+  margin-top: 2rem;
+}

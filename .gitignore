@@ -1,0 +1,8 @@
+# Large raw data
+data/universal_top_spotify_songs.csv
+
+# OS files
+.DS_Store
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
