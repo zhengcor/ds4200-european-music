@@ -1,35 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  
-  <meta charset="UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Scatterplot - European Music Trends</title>
+  <title>Heatmap | European Music Trends</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="https://d3js.org/topojson.v3.min.js"></script>
-  <link rel="stylesheet" href="heatmap.css">
-</head>
-  <style>
-    #vis.vega-embed {
-      width: 100%;
-      display: flex;
-    }
-
-    #vis.vega-embed details,
-    #vis.vega-embed details summary {
-      position: relative;
-    }
-  </style>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+  <link rel="stylesheet" href="heatmap.css">
 </head>
-
 <body>
+
   <header class="navbar">
     <div class="logo">European Music Trends</div>
     <nav>
@@ -44,14 +28,45 @@
 
   <div class="container">
     <section class="section">
-      <h2>Static Heatmap of the Average Audio Features by Country</h2>
+      <h2>Average Audio Features by Country</h2>
       <p>
-        placeholder for instructions
+        This heatmap compares the average audio features across 10 European countries.
+        Values are normalized so colors are comparable across features. Hover over a cell to see the actual value.
       </p>
     </section>
-    <div id="vis">
-      
+
+    <div class="content-container">
+      <div class="visualization-column">
+        <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-c99fc10a856008827d1df758cb2bcb5a"}, "mark": {"type": "rect"}, "encoding": {"color": {"field": "normalized", "scale": {"scheme": "yellowgreenblue"}, "title": "Normalized Value", "type": "quantitative"}, "tooltip": [{"field": "country_name", "title": "Country", "type": "nominal"}, {"field": "feature", "title": "Feature", "type": "nominal"}, {"field": "raw_value", "format": ".3f", "title": "Actual Value", "type": "quantitative"}, {"field": "normalized", "format": ".3f", "title": "Normalized", "type": "quantitative"}], "x": {"field": "feature", "title": "Audio Feature", "type": "nominal"}, "y": {"field": "country_name", "title": "Country", "type": "nominal"}}, "height": 350, "title": "Average Audio Features by Country (Normalized)", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json", "datasets": {"data-c99fc10a856008827d1df758cb2bcb5a": [{"country_name": "Belgium", "feature": "danceability", "normalized": 0.6306551297898628, "raw_value": 0.7027279999999999}, {"country_name": "Germany", "feature": "danceability", "normalized": 0.5364098338140364, "raw_value": 0.6890040000000001}, {"country_name": "Spain", "feature": "danceability", "normalized": 0.4276610355720361, "raw_value": 0.673168}, {"country_name": "France", "feature": "danceability", "normalized": 1.0, "raw_value": 0.7565120000000001}, {"country_name": "United Kingdom", "feature": "danceability", "normalized": 0.310218376596621, "raw_value": 0.656066}, {"country_name": "Italy", "feature": "danceability", "normalized": 0.18048345007553854, "raw_value": 0.637174}, {"country_name": "Netherlands", "feature": "danceability", "normalized": 0.5289520670237601, "raw_value": 0.687918}, {"country_name": "Poland", "feature": "danceability", "normalized": 0.3717758549649768, "raw_value": 0.66503}, {"country_name": "Portugal", "feature": "danceability", "normalized": 0.5183079247356133, "raw_value": 0.6863680000000001}, {"country_name": "Sweden", "feature": "danceability", "normalized": 0.0, "raw_value": 0.6108920000000001}, {"country_name": "Belgium", "feature": "energy", "normalized": 0.25959716902990887, "raw_value": 0.653092}, {"country_name": "Germany", "feature": "energy", "normalized": 1.0, "raw_value": 0.725318}, {"country_name": "Spain", "feature": "energy", "normalized": 0.13355257222992126, "raw_value": 0.6407963999999999}, {"country_name": "France", "feature": "energy", "normalized": 0.15378433125302354, "raw_value": 0.64277}, {"country_name": "United Kingdom", "feature": "energy", "normalized": 0.3871425408202591, "raw_value": 0.665534}, {"country_name": "Italy", "feature": "energy", "normalized": 0.34798297481486357, "raw_value": 0.661714}, {"country_name": "Netherlands", "feature": "energy", "normalized": 0.8015368591977821, "raw_value": 0.705958}, {"country_name": "Poland", "feature": "energy", "normalized": 0.47300655256402896, "raw_value": 0.67391}, {"country_name": "Portugal", "feature": "energy", "normalized": 0.0, "raw_value": 0.6277684}, {"country_name": "Sweden", "feature": "energy", "normalized": 0.18969631859074754, "raw_value": 0.6462732}, {"country_name": "Belgium", "feature": "loudness", "normalized": 0.7091105994304956, "raw_value": -6.716694}, {"country_name": "Germany", "feature": "loudness", "normalized": 0.8567324295472138, "raw_value": -6.334202}, {"country_name": "Spain", "feature": "loudness", "normalized": 0.0, "raw_value": -8.554018}, {"country_name": "France", "feature": "loudness", "normalized": 0.5408328592611573, "raw_value": -7.152706}, {"country_name": "United Kingdom", "feature": "loudness", "normalized": 1.0, "raw_value": -5.962992}, {"country_name": "Italy", "feature": "loudness", "normalized": 0.7536365902928027, "raw_value": -6.601326}, {"country_name": "Netherlands", "feature": "loudness", "normalized": 0.9806802401828465, "raw_value": -6.01305}, {"country_name": "Poland", "feature": "loudness", "normalized": 0.4250972394719309, "raw_value": -7.45258}, {"country_name": "Portugal", "feature": "loudness", "normalized": 0.43890412523841876, "raw_value": -7.416806}, {"country_name": "Sweden", "feature": "loudness", "normalized": 0.40853082910013255, "raw_value": -7.4955039999999995}, {"country_name": "Belgium", "feature": "speechiness", "normalized": 0.46041423474865095, "raw_value": 0.1122152}, {"country_name": "Germany", "feature": "speechiness", "normalized": 0.6955754328228063, "raw_value": 0.13228}, {"country_name": "Spain", "feature": "speechiness", "normalized": 0.32811086264527034, "raw_value": 0.10092659999999999}, {"country_name": "France", "feature": "speechiness", "normalized": 1.0, "raw_value": 0.15825460000000002}, {"country_name": "United Kingdom", "feature": "speechiness", "normalized": 0.07770183161516864, "raw_value": 0.0795608}, {"country_name": "Italy", "feature": "speechiness", "normalized": 0.28087422471625667, "raw_value": 0.0968962}, {"country_name": "Netherlands", "feature": "speechiness", "normalized": 0.0, "raw_value": 0.072931}, {"country_name": "Poland", "feature": "speechiness", "normalized": 0.5881092687134625, "raw_value": 0.1231106}, {"country_name": "Portugal", "feature": "speechiness", "normalized": 0.838276865955023, "raw_value": 0.14445580000000002}, {"country_name": "Sweden", "feature": "speechiness", "normalized": 0.17281033617897038, "raw_value": 0.0876758}, {"country_name": "Belgium", "feature": "acousticness", "normalized": 0.45761879760940777, "raw_value": 0.230072474}, {"country_name": "Germany", "feature": "acousticness", "normalized": 0.0, "raw_value": 0.13790201400000002}, {"country_name": "Spain", "feature": "acousticness", "normalized": 1.0, "raw_value": 0.3393152}, {"country_name": "France", "feature": "acousticness", "normalized": 0.5769278978586835, "raw_value": 0.2541029}, {"country_name": "United Kingdom", "feature": "acousticness", "normalized": 0.3192125335825828, "raw_value": 0.2021956274}, {"country_name": "Italy", "feature": "acousticness", "normalized": 0.4977588011541607, "raw_value": 0.23815719999999999}, {"country_name": "Netherlands", "feature": "acousticness", "normalized": 0.2185073424140164, "raw_value": 0.18191227399999998}, {"country_name": "Poland", "feature": "acousticness", "normalized": 0.41118161945961174, "raw_value": 0.220719414}, {"country_name": "Portugal", "feature": "acousticness", "normalized": 0.757604718094276, "raw_value": 0.29049359399999997}, {"country_name": "Sweden", "feature": "acousticness", "normalized": 0.7855738799544137, "raw_value": 0.296126952}, {"country_name": "Belgium", "feature": "instrumentalness", "normalized": 0.10499966863523577, "raw_value": 0.01183455668}, {"country_name": "Germany", "feature": "instrumentalness", "normalized": 0.21923385109907198, "raw_value": 0.02043529892}, {"country_name": "Spain", "feature": "instrumentalness", "normalized": 1.0, "raw_value": 0.0792195284}, {"country_name": "France", "feature": "instrumentalness", "normalized": 0.021194666542441606, "raw_value": 0.00552484092}, {"country_name": "United Kingdom", "feature": "instrumentalness", "normalized": 0.0, "raw_value": 0.00392908508}, {"country_name": "Italy", "feature": "instrumentalness", "normalized": 0.2706973278584223, "raw_value": 0.0243100069}, {"country_name": "Netherlands", "feature": "instrumentalness", "normalized": 0.006520931984864287, "raw_value": 0.00442004894}, {"country_name": "Poland", "feature": "instrumentalness", "normalized": 0.08579128206944922, "raw_value": 0.01038834874}, {"country_name": "Portugal", "feature": "instrumentalness", "normalized": 0.600383623561323, "raw_value": 0.049132234260000004}, {"country_name": "Sweden", "feature": "instrumentalness", "normalized": 0.162636374021021, "raw_value": 0.01617404978}, {"country_name": "Belgium", "feature": "liveness", "normalized": 0.34179477057058294, "raw_value": 0.1448612}, {"country_name": "Germany", "feature": "liveness", "normalized": 1.0, "raw_value": 0.1892112}, {"country_name": "Spain", "feature": "liveness", "normalized": 0.48033101712372467, "raw_value": 0.1541958}, {"country_name": "France", "feature": "liveness", "normalized": 0.0, "raw_value": 0.12183100000000001}, {"country_name": "United Kingdom", "feature": "liveness", "normalized": 0.7484335160774236, "raw_value": 0.1722606}, {"country_name": "Italy", "feature": "liveness", "normalized": 0.7996325329993083, "raw_value": 0.1757104}, {"country_name": "Netherlands", "feature": "liveness", "normalized": 0.5019605165909271, "raw_value": 0.1556532}, {"country_name": "Poland", "feature": "liveness", "normalized": 0.8051860932440095, "raw_value": 0.1760846}, {"country_name": "Portugal", "feature": "liveness", "normalized": 0.6251836592945701, "raw_value": 0.163956}, {"country_name": "Sweden", "feature": "liveness", "normalized": 0.8350227514907941, "raw_value": 0.178095}, {"country_name": "Belgium", "feature": "valence", "normalized": 0.4628897163544064, "raw_value": 0.5473684}, {"country_name": "Germany", "feature": "valence", "normalized": 0.30526169438715783, "raw_value": 0.529682}, {"country_name": "Spain", "feature": "valence", "normalized": 0.18193388079149134, "raw_value": 0.5158442}, {"country_name": "France", "feature": "valence", "normalized": 0.8469208597956919, "raw_value": 0.5904579999999999}, {"country_name": "United Kingdom", "feature": "valence", "normalized": 0.34582374509150343, "raw_value": 0.5342332}, {"country_name": "Italy", "feature": "valence", "normalized": 0.023844197234665333, "raw_value": 0.498106}, {"country_name": "Netherlands", "feature": "valence", "normalized": 1.0, "raw_value": 0.607634}, {"country_name": "Poland", "feature": "valence", "normalized": 0.0, "raw_value": 0.49543059999999994}, {"country_name": "Portugal", "feature": "valence", "normalized": 0.22784871046688476, "raw_value": 0.520996}, {"country_name": "Sweden", "feature": "valence", "normalized": 0.5776776817814798, "raw_value": 0.5602480000000001}, {"country_name": "Belgium", "feature": "tempo", "normalized": 0.7258585567769755, "raw_value": 126.805822}, {"country_name": "Germany", "feature": "tempo", "normalized": 1.0, "raw_value": 131.57817}, {"country_name": "Spain", "feature": "tempo", "normalized": 0.0, "raw_value": 114.169828}, {"country_name": "France", "feature": "tempo", "normalized": 0.5484956580012041, "raw_value": 123.718228}, {"country_name": "United Kingdom", "feature": "tempo", "normalized": 0.4178025684467827, "raw_value": 121.443078}, {"country_name": "Italy", "feature": "tempo", "normalized": 0.7501695451525486, "raw_value": 127.22903600000001}, {"country_name": "Netherlands", "feature": "tempo", "normalized": 0.6783165220444315, "raw_value": 125.978194}, {"country_name": "Poland", "feature": "tempo", "normalized": 0.7125351742285398, "raw_value": 126.573884}, {"country_name": "Portugal", "feature": "tempo", "normalized": 0.47199394405279965, "raw_value": 122.38646}, {"country_name": "Sweden", "feature": "tempo", "normalized": 0.603812930605339, "raw_value": 124.68121000000001}, {"country_name": "Belgium", "feature": "popularity", "normalized": 1.0, "raw_value": 82.828}, {"country_name": "Germany", "feature": "popularity", "normalized": 0.6844678450545313, "raw_value": 79.472}, {"country_name": "Spain", "feature": "popularity", "normalized": 0.8804061677322298, "raw_value": 81.556}, {"country_name": "France", "feature": "popularity", "normalized": 0.45675065814215865, "raw_value": 77.05}, {"country_name": "United Kingdom", "feature": "popularity", "normalized": 0.2060925159834529, "raw_value": 74.384}, {"country_name": "Italy", "feature": "popularity", "normalized": 0.08386611508085834, "raw_value": 73.084}, {"country_name": "Netherlands", "feature": "popularity", "normalized": 0.44546822113576623, "raw_value": 76.93}, {"country_name": "Poland", "feature": "popularity", "normalized": 0.0013162843174135005, "raw_value": 72.206}, {"country_name": "Portugal", "feature": "popularity", "normalized": 0.6188416698006771, "raw_value": 78.774}, {"country_name": "Sweden", "feature": "popularity", "normalized": 0.0, "raw_value": 72.192}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+      </div>
+      <div class="description-column">
+        <div class="description">
+          <h2>Takeaway</h2>
+          <p>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
+
 </body>
 </html>

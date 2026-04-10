@@ -1,1 +1,41 @@
 @import url('../styles.css');
+
+.content-container {
+  display: flex;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.visualization-column {
+  flex: 1.5;
+  min-width: 0;
+}
+
+.description-column {
+  flex: 1;
+  min-width: 0;
+}
+
+.description {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.description h2 {
+  margin-top: 0;
+}
+
+.description p {
+  line-height: 1.6;
+}
+
+#vis.vega-embed {
+  width: 100%;
+  display: flex;
+}
+
+#vis.vega-embed details,
+#vis.vega-embed details summary {
+  position: relative;
+}
