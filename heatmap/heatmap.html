@@ -34,9 +34,8 @@
         <b>Instructions:</b> This visualization displays the average audio features for each country, normalized from 0 to 1 so that colors are comparable across columns. The darker the cell, the higher that country ranks for that feature relative to the others. Hover over any cell to see both the actual value and the normalized value in a tooltip.
       </p>
     </section>
-
-    <div class="content-container">
-      <div class="visualization-column">
+<div class = "row">
+      <div class = "column">
         <div id="vis">
           <script>
             (function(vegaEmbed) {
@@ -58,14 +57,24 @@
           </script>
         </div>
       </div>
-      <div class="description-column">
-        <div class="description">
-          <h2>Takeaway</h2>
-          <p>
-          </p>
-        </div>
+      <div class = "column">
+        <p><b>Description:</b> 
+          
       </div>
     </div>
+
+    <section class="hero">
+      <div class ="container">
+        <button class = "primary-cta" id = 'navigateButton'>Back to Top</button>
+        <script>
+            const navigateButton = document.getElementById('navigateButton');
+            navigateButton.addEventListener('click', function(){
+            window.scrollTo({top: 0, behavior: 'smooth'});
+          })
+        </script>
+      </div>
+    </section>
+
   </div>
 
 </body>
