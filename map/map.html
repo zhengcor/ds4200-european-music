@@ -35,38 +35,57 @@
       </p>
     </section>
 
-    <div class="controls">
-      <label for="feature-select">Audio Feature: </label>
-      <select id="feature-select">
-        <option value="danceability">Danceability</option>
-        <option value="energy" selected>Energy</option>
-        <option value="valence">Valence</option>
-        <option value="acousticness">Acousticness</option>
-        <option value="speechiness">Speechiness</option>
-        <option value="instrumentalness">Instrumentalness</option>
-        <option value="liveness">Liveness</option>
-        <option value="tempo">Tempo</option>
-        <option value="loudness">Loudness</option>
-        <option value="popularity">Popularity</option>
-      </select>
-    </div>
-
-    <div class="content-container">
-      <div class="visualization-column">
+    <div class="row">
+      <div class="column">
+        <div class="controls">
+          <label for="feature-select">Audio Feature: </label>
+          <select id="feature-select">
+            <option value="danceability">Danceability</option>
+            <option value="energy" selected>Energy</option>
+            <option value="valence">Valence</option>
+            <option value="acousticness">Acousticness</option>
+            <option value="speechiness">Speechiness</option>
+            <option value="instrumentalness">Instrumentalness</option>
+            <option value="liveness">Liveness</option>
+            <option value="tempo">Tempo</option>
+            <option value="loudness">Loudness</option>
+            <option value="popularity">Popularity</option>
+          </select>
+        </div>
         <div id="chart"></div>
       </div>
-      <div class="description-column">
-        <div class="description">
-          <h2>Takeaway</h2>
-          <p>
-            <!-- TODO: Add takeaway once the visualization is finalized -->
-          </p>
-        </div>
+      <div class="column">
+        <p><b>Description:</b></p>
       </div>
     </div>
+
+    <section class="section">
+      <h2>Explore other visualizations:</h2>
+      <div class="visualization-grid">
+
+        <a href="../heatmap/heatmap.html" class="visualization-card">
+          <h3>Average Audio Feature Heatmap</h3>
+        </a>
+
+        <a href="../Scatterplot/scatterplot.html" class="visualization-card">
+          <h3>Energy vs. Valence Scatterplot</h3>
+        </a>
+
+        <a href="../map/map.html" class="visualization-card">
+          <h3>Interactive Map</h3>
+        </a>
+
+        <a href="../barchart/barchart.html" class="visualization-card">
+          <h3>Country Comparison Bar Chart</h3>
+        </a>
+
+        <a href="../radar/radar.html" class="visualization-card">
+          <h3>Audio Feature Radar Chart</h3>
+        </a>
+
+      </div>
+    </section>
   </div>
-
-
 
   <script src="script.js"></script>
 </body>
