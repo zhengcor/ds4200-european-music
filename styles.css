@@ -66,6 +66,7 @@ a {
   opacity: 1;
   border-bottom: 2px solid var(--accent);
   padding-bottom: 2px;
+  cursor: pointer;
 }
 
 .container {
@@ -146,6 +147,7 @@ a {
 
 .inline-link:hover {
   color: var(--accent);
+  cursor: pointer;
 }
 
 .feature-list {
@@ -184,6 +186,7 @@ a {
 .visualization-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
 }
 
 .visualization-card h3 {
@@ -196,6 +199,19 @@ a {
   color: var(--text-light);
 }
 
+button {
+  padding: 8px;
+  font-family: var(--font-body);
+  color: var(--white);
+  border-radius: 4px;
+  background-color: var(--primary-light);
+}
+
+button:hover {
+  background-color: var(--accent);
+  color: var(--text);
+  cursor: pointer;
+}
 
 
 
