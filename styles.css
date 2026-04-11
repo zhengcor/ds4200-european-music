@@ -92,6 +92,14 @@ a {
   text-align: left;
 }
 
+.hero ul {
+  max-width: 850px;
+  margin: 0 auto 1.25rem;
+  text-align: left;
+  font-size: 1.1rem;
+  color: #5a5a5a;
+}
+
 .section {
   margin-bottom: 3rem;
 }
