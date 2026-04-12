@@ -1,4 +1,4 @@
-let width = 700;
+let width = 500;
 let height = 500;
 
 let svg = d3.select('#chart')
@@ -104,7 +104,7 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json')
 
 
 
-      
+
     let legendWidth = 200;
     let legendHeight = 12;
     let numSteps = 8;
