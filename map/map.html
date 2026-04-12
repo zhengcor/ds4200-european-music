@@ -15,7 +15,7 @@
 <body>
 
   <header class="navbar">
-    <div class="logo">DS4200 - European Music Trends</div>
+    <div class="logo">European Music Trends</div>
     <nav>
       <a href="../index.html">Home</a>
       <a href="../heatmap/heatmap.html">Heatmap</a>
@@ -55,34 +55,19 @@
         <div id="chart"></div>
       </div>
       <div class="column">
-        <p><b>Description:</b></p>
+        <p><b>Description:</b> The choropleth map displays the average audio features for each of the 10 European countries using geographic positioning. Since this is a map, the graph uses filled country regions as marks to represent the data. For channels, the graph uses color saturation to encode the value of the selected audio feature, where darker shading indicates a higher value. The dropdown allows the user to switch between different audio features. From the map, it can be observed that neighboring countries often share similar color intensities, suggesting regional clustering in musical preferences. For example, Western European countries like France, Belgium, and the Netherlands tend to have similar danceability and valence values. Southern countries like Spain and Portugal stand out for acousticness. This geographic view reinforces the idea that location in Europe influences the audio characteristics of popular music.</p>
       </div>
     </div>
 
-    <section class="section">
-      <h2>Explore other visualizations:</h2>
-      <div class="visualization-grid">
-
-        <a href="../heatmap/heatmap.html" class="visualization-card">
-          <h3>Average Audio Feature Heatmap</h3>
-        </a>
-
-        <a href="../Scatterplot/scatterplot.html" class="visualization-card">
-          <h3>Energy vs. Valence Scatterplot</h3>
-        </a>
-
-        <a href="../map/map.html" class="visualization-card">
-          <h3>Interactive Map</h3>
-        </a>
-
-        <a href="../barchart/barchart.html" class="visualization-card">
-          <h3>Country Comparison Bar Chart</h3>
-        </a>
-
-        <a href="../radar/radar.html" class="visualization-card">
-          <h3>Audio Feature Radar Chart</h3>
-        </a>
-
+    <section class="hero">
+      <div class="container">
+        <button class="primary-cta" id="navigateButton">Back to Top</button>
+        <script>
+            const navigateButton = document.getElementById('navigateButton');
+            navigateButton.addEventListener('click', function(){
+            window.scrollTo({top: 0, behavior: 'smooth'});
+          })
+        </script>
       </div>
     </section>
   </div>
